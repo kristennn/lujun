@@ -1,6 +1,6 @@
 <h2>Product List</h2>
 <%= link_to("新增商品", new_admin_product_path, class: "btn btn-primary pull-right") %>
-<table class="table table-border">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>#</th>
@@ -14,7 +14,15 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.id %></td>
-        <td><% %></td>
+        <td>
+          <%= link_to product_path(product) do %>
+            <% if product.image.present? %>
+              <%= image_tag(product.image.thumb) %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+            <% end %>
+          <% end %>
+        </td>
         <td><%= link_to(product.title, admin_product_path(product)) %></td>
         <td><%= product.price %></td>
         <td>
