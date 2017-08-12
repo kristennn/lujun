@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     end
   end
   resources :cart_items
+  get "/search" => "search#index", :as => "search"
 end
