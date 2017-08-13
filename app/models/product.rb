@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
-  vadilates_of_presence :title
+  validates_presence_of :title
 
 end
